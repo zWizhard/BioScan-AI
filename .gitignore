@@ -1,0 +1,42 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+ENV/
+
+# ---- Secrets / ambiente ----
+.env
+*.local
+
+# ---- Banco de dados / dados gerados ----
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+data/gbif_cache/*
+!data/gbif_cache/.gitkeep
+
+# ---- Testes / cobertura ----
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ---- IDE / SO ----
+.claude/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

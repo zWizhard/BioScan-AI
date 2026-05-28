@@ -1,0 +1,58 @@
+[
+  {
+    "scientific_name": "Bothrops jararaca",
+    "common_name_pt": "Jararaca",
+    "risk_level": "CRÍTICO",
+    "risk_category": "VENENO",
+    "venom_type": "HEMOTÓXICO",
+    "safe_distance_m": 300,
+    "first_aid": "Não tente sugar ou cortar o local. Imobilize o membro afetado. Vá imediatamente ao pronto-socorro mais próximo. O tratamento é soro antiofídico específico.",
+    "what_not_to_do": "Não faça torniquete. Não aplique gelo. Não tente matar ou capturar a cobra.",
+    "emergency_contact": "SAMU: 192 | CVP: 0800-722-6001",
+    "brazil_endemic": true
+  },
+  {
+    "scientific_name": "Loxosceles gaucho",
+    "common_name_pt": "Aranha-marrom",
+    "risk_level": "ALTO",
+    "risk_category": "VENENO",
+    "venom_type": "CITOTÓXICO",
+    "safe_distance_m": 50,
+    "first_aid": "Lave o local com água e sabão. Aplique gelo para reduzir o inchaço. Consulte um médico dentro de 2 horas — o veneno age lentamente mas causa necrose.",
+    "what_not_to_do": "Não esprema a picada. Não ignore sintomas tardios (lesão roxa nas primeiras 24h é sinal de alerta).",
+    "emergency_contact": "CVP: 0800-722-6001"
+  },
+  {
+    "scientific_name": "Phoneutria nigriventer",
+    "common_name_pt": "Aranha-armadeira",
+    "risk_level": "CRÍTICO",
+    "risk_category": "VENENO",
+    "venom_type": "NEUROTÓXICO",
+    "safe_distance_m": 100,
+    "first_aid": "Procure emergência imediatamente. Em crianças e idosos, risco de vida. O soro específico está disponível em hospitais de referência.",
+    "what_not_to_do": "Não perca tempo com remédios caseiros. Não aguarde sintomas piorarem.",
+    "emergency_contact": "SAMU: 192"
+  },
+  {
+    "scientific_name": "Tityus serrulatus",
+    "common_name_pt": "Escorpião-amarelo",
+    "risk_level": "CRÍTICO",
+    "risk_category": "VENENO",
+    "venom_type": "NEUROTÓXICO",
+    "safe_distance_m": 50,
+    "first_aid": "Emergência imediata, especialmente para crianças abaixo de 7 anos. Lave com água e sabão. Soro antiescorpiônico disponível no SUS.",
+    "what_not_to_do": "Nunca aplique torniquete. Não use álcool no local.",
+    "emergency_contact": "SAMU: 192 | CVP: 0800-722-6001"
+  },
+  {
+    "scientific_name": "Canis lupus familiaris",
+    "common_name_pt": "Cão doméstico",
+    "risk_level": "MÉDIO",
+    "risk_category": "ZOONOSE",
+    "venom_type": null,
+    "safe_distance_m": 10,
+    "first_aid": "Lave o ferimento com água e sabão por 10 minutos. Procure UBS ou pronto-socorro para avaliação de risco rábico e profilaxia se necessário.",
+    "what_not_to_do": "Não ignore mordidas mesmo superficiais — risco de raiva e infecção bacteriana.",
+    "emergency_contact": "UBS local | SAMU: 192 em caso grave"
+  }
+]
