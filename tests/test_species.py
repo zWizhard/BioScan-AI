@@ -2,12 +2,20 @@
 
 from fastapi.testclient import TestClient
 
+from app import main
 from app.main import app
 
 client = TestClient(app)
 
 
-def test_health_ok() -> None:
+def test_health_ok(monkeypatch) -> None:
+    # Mocka os checks externos para o teste não depender de rede.
+    async def _ok() -> str:
+        return "ok"
+
+    monkeypatch.setattr(main, "check_gbif", _ok)
+    monkeypatch.setattr(main, "check_huggingface", _ok)
+
     response = client.get("/api/v1/health")
     assert response.status_code == 200
     assert response.json()["status"] == "ok"
