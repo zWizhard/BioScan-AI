@@ -52,6 +52,11 @@ docker compose up --build
 curl http://localhost:8000/api/v1/health
 ```
 
+> Validado em ambiente limpo (Docker 29.5.2 / Compose v5.1.3): o container sobe
+> `healthy`, aplica o seed (5 espécies) e responde 200 em `/api/v1/health`. Com
+> `HF_API_KEY` não configurada, o `/identify` retorna `degraded_mode: true`
+> (HTTP 200), comprovando a degradação graciosa.
+
 O banco SQLite é persistido no volume `bioscan-db`; o seed JSON fica imutável
 dentro da imagem em `/app/data`, enquanto o `.db` vive em `/data` (volume).
 
