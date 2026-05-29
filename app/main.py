@@ -141,7 +141,12 @@ def _overall_risk(candidates: list[Candidate]) -> Candidate | None:
     with_risk = [c for c in candidates if c.risk is not None]
     if not with_risk:
         return None
-    return max(with_risk, key=lambda c: (risk_severity(c.risk.level), c.probability))
+    # `c.risk` é garantidamente não-nulo aqui (filtrado acima); o `if c.risk`
+    # no lambda é só para o type-checker estreitar o Optional.
+    return max(
+        with_risk,
+        key=lambda c: (risk_severity(c.risk.level if c.risk else None), c.probability),
+    )
 
 
 # --------------------------------------------------------------------------- #
