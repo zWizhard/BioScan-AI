@@ -35,9 +35,25 @@ pip install -r requirements.txt
 # 3. Configurar variáveis de ambiente
 copy .env.example .env            # e preencher HF_API_KEY
 
-# 4. Rodar a API (após Tarefa 6)
+# 4. Rodar a API
 uvicorn app.main:app --reload --port 8000
 ```
+
+## Rodar com Docker
+
+```bash
+# Pré-requisito: copiar o .env (e preencher HF_API_KEY)
+copy .env.example .env
+
+# Build + subir (a API aplica o seed no boot e expõe a porta 8000)
+docker compose up --build
+
+# Verificar
+curl http://localhost:8000/api/v1/health
+```
+
+O banco SQLite é persistido no volume `bioscan-db`; o seed JSON fica imutável
+dentro da imagem em `/app/data`, enquanto o `.db` vive em `/data` (volume).
 
 ## Estrutura
 
@@ -61,7 +77,10 @@ data/                # seed JSON + cache de ocorrências
 
 ## Status
 
-`v0.1.0-dev` — em construção incremental (Tarefa 1: estrutura e ambiente ✅).
+`v0.1.0-dev` — MVP funcional. Tarefas 1–7 concluídas: estrutura, banco + seed,
+cliente de visão (HuggingFace), cliente GBIF com cache, motor bayesiano,
+endpoints (`/identify`, `/species`, `/health`) e containerização (Docker).
+27 testes passando.
 
 ## Disclaimer
 

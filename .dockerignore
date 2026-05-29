@@ -1,0 +1,23 @@
+# Contexto de build enxuto — não enviar lixo/segredos ao daemon Docker.
+.git
+.gitignore
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.mypy_cache
+.ruff_cache
+
+# Segredos: o .env é injetado em runtime via env_file, não copiado p/ imagem.
+.env
+*.local
+
+# Banco e cache locais (o .db de produção vive num volume).
+data/*.db
+data/*.sqlite*
+data/gbif_cache/*
+
+tests
+README.md
+*.md
