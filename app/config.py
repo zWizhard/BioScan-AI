@@ -26,6 +26,10 @@ class Settings(BaseSettings):
 
     # ---- HuggingFace ----
     hf_api_key: str = "hf_xxxxxxxxxxxxxxxxxxxx"
+    # Modelo de classificação de imagem na Inference API (router serverless).
+    # OBS: o ID do documento (Smithsonian/...iNat21) não existe mais na HF; o
+    # padrão abaixo é um modelo geral que funciona serverless. Trocável por .env.
+    hf_model: str = "google/vit-base-patch16-224"
 
     # ---- App ----
     app_env: Literal["development", "production", "test"] = "development"

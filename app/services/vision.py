@@ -19,9 +19,11 @@ from app.utils.image import preprocess_image
 logger = logging.getLogger("bioscan.vision")
 settings = get_settings()
 
-# Modelo primário: ViT-Large treinado no iNaturalist 2021 (10k espécies).
-PRIMARY_MODEL = "Smithsonian/vit-large-patch16-224-iNat21"
-HF_INFERENCE_BASE = "https://api-inference.huggingface.co/models"
+# Modelo de classificação de imagem (configurável via .env / settings).
+PRIMARY_MODEL = settings.hf_model
+# A HF migrou a inferência serverless para o "router"; o antigo
+# api-inference.huggingface.co foi descontinuado (DNS inexistente).
+HF_INFERENCE_BASE = "https://router.huggingface.co/hf-inference/models"
 
 TOP_K = 10
 # Backoff exponencial entre tentativas: aguarda 2s, depois 4s, depois 8s.
@@ -117,9 +119,13 @@ async def identify_species(
     candidatas ordenado por score decrescente. `client` pode ser injetado nos
     testes (ex.: httpx.MockTransport); caso contrário, um é criado e fechado aqui.
     """
-    processed = preprocess_image(image_bytes)
+    processed = preprocess_image(image_bytes)  # devolve bytes JPEG
     url = f"{HF_INFERENCE_BASE}/{model}"
-    headers = {"Authorization": f"Bearer {settings.hf_api_key}"}
+    # O router exige Content-Type explícito; preprocess_image sempre emite JPEG.
+    headers = {
+        "Authorization": f"Bearer {settings.hf_api_key}",
+        "Content-Type": "image/jpeg",
+    }
 
     owns_client = client is None
     if client is None:

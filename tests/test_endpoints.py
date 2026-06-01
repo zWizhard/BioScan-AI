@@ -58,7 +58,7 @@ def test_identify_full_pipeline(patch_pipeline) -> None:
 
     # Estrutura do contrato.
     assert body["request_id"]
-    assert body["model_version"] == "Smithsonian/vit-large-patch16-224-iNat21"
+    assert body["model_version"]  # reflete o modelo configurado em settings.hf_model
     assert body["degraded_mode"] is False
     assert body["geographic_context"]["radius_km"] == 50
 
